@@ -41,7 +41,7 @@ exports.showAllMahasiswa = async (req, res) => {
       return row;
     });
 
-    response.ok(rows, res);
+    response.ok(rows, queryResult.length, res);
   } catch (error) {
     console.log("error");
   }
@@ -60,7 +60,7 @@ exports.showMahasiswaById = async (req, res) => {
       return row;
     });
 
-    response.ok(rows, res);
+    response.ok(rows, queryResult.length, res);
   } catch (error) {
     console.log("error");
   }
@@ -79,7 +79,7 @@ exports.addMahasiswa = async (req, res) => {
     const queryAsync = util.promisify(connection.query).bind(connection);
     const queryResult = await queryAsync(query);
 
-    response.ok("Success to add mahasiswa", res);
+    response.ok("Success to add mahasiswa", queryResult.length, res);
   } catch (error) {
     console.error(error);
   }
@@ -112,7 +112,7 @@ exports.updateMahasiswa = async (req, res) => {
     const queryAsync = util.promisify(connection.query).bind(connection);
     const queryResult = await queryAsync(query);
 
-    response.ok("Success update mahasiswa", res);
+    response.ok("Success update mahasiswa", queryResult.length, res);
   } catch (error) {
     console.error(error);
   }
@@ -127,7 +127,7 @@ exports.deleteMahasiswa = async (req, res) => {
     const queryAsync = util.promisify(connection.query).bind(connection);
     const queryResult = await queryAsync(query);
 
-    response.ok("Success delete mahasiswa", res);
+    response.ok("Success delete mahasiswa", queryResult.length, res);
   } catch (error) {
     console.error(error);
   }

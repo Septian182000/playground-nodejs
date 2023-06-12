@@ -10,6 +10,6 @@ app.use(bodyParser.json());
 var routes = require("./router/router");
 routes(app);
 
-app.listen(3100, () => {
-  console.log("success running");
+app.listen(3003, () => {
+  console.log("API is Running");
 });
